@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Facility } from '../../Facility';
 import { FacilityService } from 'src/app/services/facility.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-facilities',
@@ -16,13 +17,17 @@ export class FacilitiesComponent implements OnInit {
     'numero_telefone_estabelecimento',
     'endereco_email_estabelecimento',
     'numero_cnpj',
+    'detalhes',
   ];
 
   loading: boolean = false;
 
   dataSource = new MatTableDataSource();
 
-  constructor(private facilityService: FacilityService) {}
+  constructor(
+    private facilityService: FacilityService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loading = true;
@@ -36,6 +41,10 @@ export class FacilitiesComponent implements OnInit {
     } else {
       this.loading = false;
     }
+  }
+
+  goToDetails(cnes: string) {
+    this.router.navigate(['/details', cnes]);
   }
 
   applyFilter(event: Event) {
