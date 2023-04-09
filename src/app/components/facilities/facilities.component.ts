@@ -18,14 +18,25 @@ export class FacilitiesComponent implements OnInit {
     'numero_cnpj',
   ];
 
+  loading: boolean = false;
+
   dataSource = new MatTableDataSource();
 
   constructor(private facilityService: FacilityService) {}
 
   ngOnInit(): void {
+    this.loading = true;
+
     this.facilityService.getFacilities().subscribe((data) => {
       this.dataSource.data = data;
     });
+    console.log(this.dataSource.data);
+
+    if (!this.dataSource.data.length) {
+      this.loading = true;
+    } else {
+      this.loading = false;
+    }
   }
 
   applyFilter(event: Event) {

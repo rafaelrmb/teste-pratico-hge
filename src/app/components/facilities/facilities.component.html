@@ -51,4 +51,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+
+  <div *ngIf="loading" class="spinner">
+    <mat-spinner></mat-spinner>
+    <p>Carregando dados...</p>
+  </div>
 </div>
