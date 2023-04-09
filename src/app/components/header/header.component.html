@@ -17,5 +17,30 @@
       ></mat-icon>
       Cadastrar estabelecimento
     </button>
+    <button mat-raised-button [matMenuTriggerFor]="menu" class="mobile-menu">
+      Menu
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <button mat-raised-button routerLink="/">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="home icon"
+            fontIcon="home"
+          ></mat-icon>
+          Início
+        </button>
+      </button>
+      <button mat-menu-item>
+        <button mat-raised-button routerLink="/register-facility">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="add icon"
+            fontIcon="add"
+          ></mat-icon>
+          Estabelecimento
+        </button>
+      </button>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
