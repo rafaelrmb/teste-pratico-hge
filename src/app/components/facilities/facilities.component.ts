@@ -32,10 +32,10 @@ export class FacilitiesComponent implements OnInit {
     this.loading = true;
 
     this.facilityService.getFacilities().subscribe((data) => {
-      this.dataSource.data = data;
+      this.dataSource.data = data.estabelecimentos;
     });
 
-    if (!this.dataSource.data.length) {
+    if (this.dataSource.data.length) {
       this.loading = true;
     } else {
       this.loading = false;

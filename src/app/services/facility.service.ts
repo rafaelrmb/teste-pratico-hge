@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Facility } from '../Facility';
+import { Facility, FacilityResponse } from '../Facility';
 import { Observable, of, throwError } from 'rxjs';
 
 const FACILITIES_DATA: Facility[] = [
@@ -205,14 +205,14 @@ export class FacilityService {
     'https://apidadosabertos.saude.gov.br/cnes/estabelecimentos';
 
   constructor(private http: HttpClient) {}
-  getFacilities(): Observable<{ estabelecimentos: Facility[] }> {
-    return this.http.get<{ estabelecimentos: Facility[] }>(this.API_URL);
+  getFacilities(): Observable<FacilityResponse> {
+    return this.http.get<FacilityResponse>(this.API_URL);
     //return of(FACILITIES_DATA);
   }
 
   getFacilityInfoByCnes(cnes: number): Observable<Facility> {
-    //return this.http.get<Facility>(`${this.API_URL}/${cnes}`);
-    const facility = FACILITIES_DATA.find((f) => f.codigo_cnes === cnes);
+    return this.http.get<Facility>(`${this.API_URL}/${cnes}`);
+    /*const facility = FACILITIES_DATA.find((f) => f.codigo_cnes === cnes);
     return facility
       ? of(facility)
       : throwError(
@@ -220,6 +220,6 @@ export class FacilityService {
             new Error(
               `Não foi encontrado nenhum estabelecimento com esse CNES: ${cnes}`
             )
-        );
+        );*/
   }
 }

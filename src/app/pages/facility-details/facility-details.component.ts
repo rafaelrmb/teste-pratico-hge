@@ -10,7 +10,7 @@ import * as L from 'leaflet';
   styleUrls: ['./facility-details.component.css'],
 })
 export class FacilityDetailsComponent implements OnInit {
-  facility!: Facility;
+  facility: Facility = {} as Facility;
   loading: boolean = true;
 
   constructor(
@@ -23,15 +23,11 @@ export class FacilityDetailsComponent implements OnInit {
     this.facilityService.getFacilityInfoByCnes(cnesCode).subscribe((data) => {
       this.facility = data;
       this.loading = false;
+      this.loadMap();
     });
-
-    if (!this.facility) {
-      this.loading = false;
-      alert(`Estabelecimento não encontrado com esse CNES ${cnesCode}`);
-    }
   }
 
-  ngAfterViewInit() {
+  loadMap() {
     const map = L.map('map').setView(
       [
         this.facility.latitude_estabelecimento_decimo_grau ?? 0,

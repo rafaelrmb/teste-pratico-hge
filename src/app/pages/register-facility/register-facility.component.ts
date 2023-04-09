@@ -57,7 +57,7 @@ export class RegisterFacilityComponent implements OnInit {
   }
 
   onSubmit() {
-    /*this.http
+    this.http
       .post(
         'https://apidadosabertos.saude.gov.br/cnes/estabelecimentos',
         this.facility
@@ -68,7 +68,6 @@ export class RegisterFacilityComponent implements OnInit {
         } else {
           alert('Erro ao efetuar cadastro!');
         }
-      });*/
-    console.log(this.facility);
+      });
   }
 }
