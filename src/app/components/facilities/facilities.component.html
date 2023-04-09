@@ -1,13 +1,33 @@
 <div class="container">
-  <mat-form-field class="filter-input">
-    <mat-label>Filtre aqui sua pesquisa</mat-label>
-    <input
-      matInput
-      (keyup)="applyFilter($event)"
-      placeholder="CNES, Razão Social ou Nome Fantasia"
-      #input
-    />
-  </mat-form-field>
+  <div class="filter-container">
+    <mat-form-field class="filter-input">
+      <mat-label>Filtre por CNES</mat-label>
+      <input
+        matInput
+        (keyup)="filterByCnes($event)"
+        placeholder="Digite o CNES"
+        #input
+      />
+    </mat-form-field>
+    <mat-form-field class="filter-input">
+      <mat-label>Filtre por razão social</mat-label>
+      <input
+        matInput
+        (keyup)="filterByRazao($event)"
+        placeholder="Digite o nome de razão social"
+        #input
+      />
+    </mat-form-field>
+    <mat-form-field class="filter-input">
+      <mat-label>Filtre por nome fantasia</mat-label>
+      <input
+        matInput
+        (keyup)="filterByFantasia($event)"
+        placeholder="Digite o ome Fantasia"
+        #input
+      />
+    </mat-form-field>
+  </div>
 
   <table mat-table [dataSource]="dataSource" class="facilities-table">
     <ng-container matColumnDef="codigo_cnes">

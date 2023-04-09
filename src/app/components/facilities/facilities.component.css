@@ -3,6 +3,11 @@
   margin: 2rem auto;
 }
 
+.filter-container {
+  display: flex;
+  gap: 1rem;
+}
+
 .filter-input {
   width: 100%;
 }
@@ -22,4 +27,11 @@
   align-items: center;
 
   margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    gap: 0;
+  }
 }
