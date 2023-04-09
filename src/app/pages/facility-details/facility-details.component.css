@@ -4,10 +4,19 @@
 
   max-width: 80%;
   margin: 2rem auto;
+  font-size: 1rem;
 }
 
 .container .spinner {
   align-self: center;
+}
+
+.facility-info span {
+  font-weight: 500;
+}
+
+.address-info {
+  margin-top: 2rem;
 }
 
 #map {

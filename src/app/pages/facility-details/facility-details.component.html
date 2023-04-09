@@ -6,23 +6,34 @@
 
   <div class="content" *ngIf="facility">
     <h1>Detalhes do estalecimento {{ facility.nome_razao_social }}</h1>
-    <p>Código CNES: {{ facility.codigo_cnes }}</p>
-    <p>Nome razão social: {{ facility.nome_razao_social }}</p>
-    <p>Nome fantasia: {{ facility.nome_fantasia }}</p>
-    <p>Número CPNJ: {{ facility.numero_cnpj ?? "Não informado" }}</p>
-    <p>
-      Número telefone:
-      {{ facility.numero_telefone_estabelecimento ?? "Não informado" }}
-    </p>
-    <p>
-      E-mail: {{ facility.endereco_email_estabelecimento ?? "Não informado" }}
-    </p>
-    <p>
-      Código estabelecimento de saúde:
-      {{ facility.codigo_estabelecimento_saude }}
-    </p>
-    <p>Turno de atendimento: {{ facility.descricao_turno_atendimento }}</p>
+
+    <div class="facility-info">
+      <h2>Informações do estabelecimento</h2>
+      <p><span>Código CNES:</span> {{ facility.codigo_cnes }}</p>
+      <p><span>Nome razão social:</span> {{ facility.nome_razao_social }}</p>
+      <p><span>Nome fantasia:</span> {{ facility.nome_fantasia }}</p>
+      <p>
+        <span>Número CPNJ:</span> {{ facility.numero_cnpj ?? "Não informado" }}
+      </p>
+      <p>
+        <span>Número telefone:</span>
+        {{ facility.numero_telefone_estabelecimento ?? "Não informado" }}
+      </p>
+      <p>
+        <span>E-mail:</span>
+        {{ facility.endereco_email_estabelecimento ?? "Não informado" }}
+      </p>
+      <p>
+        <span>Código estabelecimento de saúde:</span>
+        {{ facility.codigo_estabelecimento_saude }}
+      </p>
+      <p>
+        <span> Turno de atendimento: </span>
+        {{ facility.descricao_turno_atendimento }}
+      </p>
+    </div>
     <div class="address-info">
+      <h2>Endreço do estabelecimento</h2>
       <p>Rua: {{ facility.endereco_estabelecimento }}</p>
       <p>Número: {{ facility.numero_estabelecimento }}</p>
       <p>Bairro: {{ facility.bairro_estabelecimento }}</p>
