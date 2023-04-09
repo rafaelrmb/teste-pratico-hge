@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { FacilitiesComponent } from './components/facilities/facilities.component';
 import { RegisterFacilityComponent } from './pages/register-facility/register-facility.component';
+import { FacilityDetailsComponent } from './pages/facility-details/facility-details.component';
 
 /* Angular Material Modules */
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,6 +28,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HeaderComponent,
     FacilitiesComponent,
     RegisterFacilityComponent,
+    FacilityDetailsComponent,
   ],
   imports: [
     BrowserModule,
