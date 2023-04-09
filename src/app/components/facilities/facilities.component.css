@@ -6,3 +6,12 @@
 .filter-input {
   width: 100%;
 }
+
+.facilities-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.facilities-table tr:hover {
+  background-color: #c5c2f5;
+  cursor: pointer;
+}

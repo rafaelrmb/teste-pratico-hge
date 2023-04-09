@@ -9,7 +9,7 @@
     />
   </mat-form-field>
 
-  <table mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="dataSource" class="facilities-table">
     <ng-container matColumnDef="codigo_cnes">
       <th mat-header-cell *matHeaderCellDef>Código CNES</th>
       <td mat-cell *matCellDef="let facility">{{ facility.codigo_cnes }}</td>
