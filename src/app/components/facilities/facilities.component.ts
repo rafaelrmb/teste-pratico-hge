@@ -34,13 +34,8 @@ export class FacilitiesComponent implements OnInit {
 
     this.facilityService.getFacilities().subscribe((data) => {
       this.dataSource.data = data.estabelecimentos;
-    });
-
-    if (this.dataSource.data.length) {
-      this.loading = true;
-    } else {
       this.loading = false;
-    }
+    });
   }
 
   goToDetails(cnes: string) {
