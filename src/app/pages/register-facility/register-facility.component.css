@@ -1,0 +1,37 @@
+form.new-facility {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-width: 50%;
+  margin: 2rem auto;
+}
+
+form.new-facility button {
+  max-width: 31.25rem;
+  align-self: center;
+}
+
+form.new-facility .personal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "title title"
+    "inputs inputs";
+  gap: 1rem 2rem;
+}
+
+.personal h2 {
+  grid-area: title;
+}
+
+form.new-facility .address {
+  display: flex;
+  flex-direction: column;
+}
+
+form .cep-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
