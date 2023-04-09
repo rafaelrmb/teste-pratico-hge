@@ -43,7 +43,7 @@ export class FacilitiesComponent implements OnInit {
   }
 
   goToDetails(cnes: string) {
-    this.router.navigate(['/details', cnes]);
+    this.router.navigate(['/estabelecimento', cnes]);
   }
 
   applyFilter(event: Event) {
