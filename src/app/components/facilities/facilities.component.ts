@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Facility } from '../../Facility';
 import { FacilityService } from 'src/app/services/facility.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
