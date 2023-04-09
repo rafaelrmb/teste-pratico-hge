@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Facility } from '../Facility';
 import { Observable, of, throwError } from 'rxjs';
 
@@ -203,11 +203,11 @@ const FACILITIES_DATA: Facility[] = [
 export class FacilityService {
   private API_URL =
     'https://apidadosabertos.saude.gov.br/cnes/estabelecimentos';
-  constructor(private http: HttpClient) {}
 
-  getFacilities(): Observable<Facility[]> {
-    //return this.http.get<Facility[]>(this.API_URL);
-    return of(FACILITIES_DATA);
+  constructor(private http: HttpClient) {}
+  getFacilities(): Observable<{ estabelecimentos: Facility[] }> {
+    return this.http.get<{ estabelecimentos: Facility[] }>(this.API_URL);
+    //return of(FACILITIES_DATA);
   }
 
   getFacilityInfoByCnes(cnes: number): Observable<Facility> {
