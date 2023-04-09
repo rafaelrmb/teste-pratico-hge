@@ -1,73 +1,75 @@
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <input
-    matInput
-    (keyup)="applyFilter($event)"
-    placeholder="Filtre sua pesquisa aqui"
-    #input
-  />
-</mat-form-field>
+<div class="container">
+  <mat-form-field class="filter-input">
+    <mat-label>Filte aqui sua pesquisa</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="CNES, Razão Social ou Nome Fantasia"
+      #input
+    />
+  </mat-form-field>
 
-<table mat-table [dataSource]="dataSource">
-  <ng-container matColumnDef="codigo_cnes">
-    <th mat-header-cell *matHeaderCellDef>Código CNES</th>
-    <td mat-cell *matCellDef="let facility">{{ facility.codigo_cnes }}</td>
-  </ng-container>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="codigo_cnes">
+      <th mat-header-cell *matHeaderCellDef>Código CNES</th>
+      <td mat-cell *matCellDef="let facility">{{ facility.codigo_cnes }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="nome_razao_social">
-    <th mat-header-cell *matHeaderCellDef>Razão Social</th>
-    <td mat-cell *matCellDef="let facility">
-      {{ facility.nome_razao_social }}
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="nome_razao_social">
+      <th mat-header-cell *matHeaderCellDef>Razão Social</th>
+      <td mat-cell *matCellDef="let facility">
+        {{ facility.nome_razao_social }}
+      </td>
+    </ng-container>
 
-  <ng-container matColumnDef="nome_fantasia">
-    <th mat-header-cell *matHeaderCellDef>Nome Fantasia</th>
-    <td mat-cell *matCellDef="let facility">{{ facility.nome_fantasia }}</td>
-  </ng-container>
+    <ng-container matColumnDef="nome_fantasia">
+      <th mat-header-cell *matHeaderCellDef>Nome Fantasia</th>
+      <td mat-cell *matCellDef="let facility">{{ facility.nome_fantasia }}</td>
+    </ng-container>
 
-  <ng-container matColumnDef="numero_telefone_estabelecimento">
-    <th mat-header-cell *matHeaderCellDef>Telefone</th>
-    <td mat-cell *matCellDef="let facility">
-      {{ facility.numero_telefone_estabelecimento }}
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="numero_telefone_estabelecimento">
+      <th mat-header-cell *matHeaderCellDef>Telefone</th>
+      <td mat-cell *matCellDef="let facility">
+        {{ facility.numero_telefone_estabelecimento }}
+      </td>
+    </ng-container>
 
-  <ng-container matColumnDef="endereco_email_estabelecimento">
-    <th mat-header-cell *matHeaderCellDef>E-mail</th>
-    <td mat-cell *matCellDef="let facility">
-      {{ facility.endereco_email_estabelecimento }}
-    </td>
-  </ng-container>
+    <ng-container matColumnDef="endereco_email_estabelecimento">
+      <th mat-header-cell *matHeaderCellDef>E-mail</th>
+      <td mat-cell *matCellDef="let facility">
+        {{ facility.endereco_email_estabelecimento }}
+      </td>
+    </ng-container>
 
-  <ng-container matColumnDef="numero_cnpj">
-    <th mat-header-cell *matHeaderCellDef>CNPJ</th>
-    <td mat-cell *matCellDef="let facility">{{ facility.numero_cnpj }}</td>
-  </ng-container>
+    <ng-container matColumnDef="numero_cnpj">
+      <th mat-header-cell *matHeaderCellDef>CNPJ</th>
+      <td mat-cell *matCellDef="let facility">{{ facility.numero_cnpj }}</td>
+    </ng-container>
 
-  <tr
-    mat-header-row
-    *matHeaderRowDef="[
-      'codigo_cnes',
-      'nome_razao_social',
-      'nome_fantasia',
-      'numero_telefone_estabelecimento',
-      'endereco_email_estabelecimento',
-      'numero_cnpj'
-    ]"
-  ></tr>
-  <tr
-    mat-row
-    *matRowDef="
-      let row;
-      columns: [
+    <tr
+      mat-header-row
+      *matHeaderRowDef="[
         'codigo_cnes',
         'nome_razao_social',
         'nome_fantasia',
         'numero_telefone_estabelecimento',
         'endereco_email_estabelecimento',
         'numero_cnpj'
-      ]
-    "
-  ></tr>
-</table>
+      ]"
+    ></tr>
+    <tr
+      mat-row
+      *matRowDef="
+        let row;
+        columns: [
+          'codigo_cnes',
+          'nome_razao_social',
+          'nome_fantasia',
+          'numero_telefone_estabelecimento',
+          'endereco_email_estabelecimento',
+          'numero_cnpj'
+        ]
+      "
+    ></tr>
+  </table>
+</div>
