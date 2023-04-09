@@ -222,4 +222,8 @@ export class FacilityService {
             )
         );*/
   }
+
+  uploadNewFacility(facility: Facility): Observable<Facility> {
+    return this.http.post<Facility>(this.API_URL, facility);
+  }
 }

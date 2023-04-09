@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FacilityService } from 'src/app/services/facility.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register-facility',
@@ -11,7 +12,10 @@ export class RegisterFacilityComponent implements OnInit {
   form: any;
   facility: any = {};
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private facilityService: FacilityService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -57,17 +61,13 @@ export class RegisterFacilityComponent implements OnInit {
   }
 
   onSubmit() {
-    this.http
-      .post(
-        'https://apidadosabertos.saude.gov.br/cnes/estabelecimentos',
-        this.facility
-      )
-      .subscribe((response: any) => {
-        if (response.success) {
-          alert('Cadastro efetuado com sucesso!');
-        } else {
-          alert('Erro ao efetuar cadastro!');
-        }
-      });
+    this.facilityService.uploadNewFacility(this.facility).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        alert('Erro ao cadastrar estabelecimento!\n' + error.message);
+      }
+    );
   }
 }
