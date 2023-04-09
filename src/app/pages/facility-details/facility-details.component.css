@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 80%;
+  margin: 2rem auto;
+}
+
+.container .spinner {
+  align-self: center;
+}
+
+#map {
+  height: 20rem;
+  width: 37.5rem;
+}
