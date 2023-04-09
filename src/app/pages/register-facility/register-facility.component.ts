@@ -42,13 +42,16 @@ export class RegisterFacilityComponent implements OnInit {
           estado: address.uf,
         });
 
-        this.facility.rua = address.logradouro;
-        this.facility.bairro = address.bairro;
-        this.facility.cidade = address.localidade;
-        this.facility.estado = address.uf;
+        Object.assign(this.facility, {
+          rua: address.logradouro,
+          bairro: address.bairro,
+          cidade: address.localidade,
+          estado: address.uf,
+        });
       },
       (error: any) => {
-        console.log(error);
+        alert('CEP inválido!');
+        console.error(error);
       }
     );
   }
