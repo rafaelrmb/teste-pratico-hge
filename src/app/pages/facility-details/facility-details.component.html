@@ -1,1 +1,32 @@
-<p>facility-details works!</p>
+<div class="container">
+  <div *ngIf="loading" class="spinner">
+    <mat-spinner></mat-spinner>
+    <p>Carregando dados...</p>
+  </div>
+
+  <div *ngIf="!loading" class="content">
+    <h1>Detalhes do estalecimento {{ facility.nome_razao_social }}</h1>
+    <p>Código CNES: {{ facility.codigo_cnes }}</p>
+    <p>Nome razão social: {{ facility.nome_razao_social }}</p>
+    <p>Nome fantasia: {{ facility.nome_fantasia }}</p>
+    <p>Número CPNJ: {{ facility.numero_cnpj ?? "Não informado" }}</p>
+    <p>
+      Número telefone:
+      {{ facility.numero_telefone_estabelecimento ?? "Não informado" }}
+    </p>
+    <p>
+      E-mail: {{ facility.endereco_email_estabelecimento ?? "Não informado" }}
+    </p>
+    <p>
+      Código estabelecimento de saúde:
+      {{ facility.codigo_estabelecimento_saude }}
+    </p>
+    <p>Turno de atendimento: {{ facility.descricao_turno_atendimento }}</p>
+    <div class="address-info">
+      <p>Rua: {{ facility.endereco_estabelecimento }}</p>
+      <p>Número: {{ facility.numero_estabelecimento }}</p>
+      <p>Bairro: {{ facility.bairro_estabelecimento }}</p>
+      <div id="map"></div>
+    </div>
+  </div>
+</div>
