@@ -36,3 +36,7 @@ export interface Facility {
   codigo_nivel_hierarquia_unidade: number | null;
   codigo_esfera_administrativa_unidade: number | null;
 }
+
+export interface FacilityResponse {
+  estabelecimentos: Facility[];
+}
