@@ -71,7 +71,7 @@ export class FacilitiesComponent implements OnInit {
       .trim()
       .toLowerCase();
     this.dataSource.filterPredicate = (data, filter) => {
-      return (data.nome_razao_social ?? '').toLowerCase().includes(filter);
+      return (data.nome_fantasia ?? '').toLowerCase().includes(filter);
     };
     this.dataSource.filter = filterValue;
   }
