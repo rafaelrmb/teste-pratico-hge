@@ -42,11 +42,6 @@ export class FacilitiesComponent implements OnInit {
     this.router.navigate(['/estabelecimento', cnes]);
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
   filterByCnes(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filterPredicate = (data, filter) => {
